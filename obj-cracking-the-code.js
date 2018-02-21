@@ -4,10 +4,11 @@ const cipher = {
   a: 2,
   b: 3,
   c: 4,
-  d: 5
+  d: 5,
+  else: ' '
 };
 
-function decoder(sentence){
+function decode(sentence){
   let codeCracker = [];
   let words = sentence.split(' ');
   
@@ -17,17 +18,14 @@ function decoder(sentence){
       codeCracker.push(words[i][cipher[letter]-1]);
     }
     else {
-        codeCracker.push(' ');
+      codeCracker.push(cipher.else);
     }
   }
-  console.log(codeCracker.join(''));
+  //console.log(codeCracker.join(''));
+  return codeCracker.join('');
 }
 
-decoder('craft block argon meter bells brown croon droop');
+//decode('craft block argon meter bells brown croon droop');
+const decodedWords= decode('craft block argon meter bells brown croon droop');
 
-
-
-
-
-
-//if(Object.keys(cipher).find(key => key===words[i][0]))
+console.log(decodedWords);
